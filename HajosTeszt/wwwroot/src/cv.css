@@ -1,0 +1,55 @@
+﻿body {
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+.container {
+    padding: 0 4rem;
+}
+
+.myName {
+    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: solid 2px black;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+    .myName:hover {
+        transition: all 2s linear;
+        color: red;
+        font-size: 5rem;
+    }
+
+p {
+    line-height: 1.3;
+    word-spacing: 2px;
+}
+
+.kepesseg {
+    font-style: italic;
+    font-style: 1.5rem;
+    margin-top: 1rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ol {
+    color: aqua;
+}
+
+img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 50%;
+}
+
+.kozep {
+    margin: 2rem;
+    text-align: center;
+}
