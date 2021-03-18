@@ -1,0 +1,21 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+#ide {
+    display: inline-block;
+    /* background: linear-gradient(to bottom, white, red); */
+}
+
+.sor {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.doboz {
+    height: 30px;
+    width: 30px;
+    text-align: center;
+}
