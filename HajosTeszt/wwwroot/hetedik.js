@@ -26,9 +26,11 @@ function letöltés(adat) {
     currentId = 0;
     kerdesekSzama = kerdesek.length;
     helyesValasz = kerdesek[0].correctAnswer;
-    
+
     console.log(kerdesekSzama);
+
     kérdésMegjelenítés(kerdesek[0]);
+    kérdésBetöltés(0)
 
 };
 
@@ -52,10 +54,12 @@ function kérdésMegjelenítés(kérdés) {
 function vissza() {
     currentId - 1 <= 0 ? currentId = kerdesekSzama - 1 : currentId = currentId - 1;
     kérdésMegjelenítés(kerdesek[currentId]);
+    kérdésBetöltés(currentId);
 }
 function elore() {
     currentId + 1 >= kerdesekSzama ? currentId = 0 : currentId = currentId + 1;
     kérdésMegjelenítés(kerdesek[currentId]);
+    kérdésBetöltés(currentId);
 }
 
 function szinez(valasz) {
@@ -69,5 +73,30 @@ function szinez(valasz) {
         }
     }
     kattinthat = false;
-    
-}
+
+};
+//fetch('/questions/1')
+//    .then(response => response.json())
+//    .then(data => kérdésMegjelenítés(data)
+//    );
+
+function kérdésMegjelenítés2(kérdés) {
+    console.log(kérdés);
+    document.getElementById("kérdés_szöveg").innerText = kérdés.questionText
+    document.getElementById("válasz1").innerText = kérdés.answer1
+    document.getElementById("válasz2").innerText = kérdés.answer2
+    document.getElementById("válasz3").innerText = kérdés.answer3
+    document.getElementById("kép").src = "https://szoft1.comeback.hu/hajo/" + kérdés.image;
+};
+function kérdésBetöltés(id) {
+    fetch(`/questions/${id}`)
+        .then(response => {
+            if (!response.ok) {
+                console.error(`Hibás válasz: ${response.status}`)
+            }
+            else {
+                return response.json()
+            }
+        })
+        .then(data => kérdésMegjelenítés2(data));
+}; 
