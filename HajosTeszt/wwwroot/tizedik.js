@@ -7,8 +7,8 @@ const g = document.querySelector(".gomb");
 const valaszok = Array.from(document.querySelectorAll(".kerdes"));
 
 fetch(`/questions/count`).then(x =>
-    x.Text()).then(x => {
-        questionNumber = parseInt(x);
+    x).then(x => {
+        questionNumber = Number(x);
     });
 var timeoutHandler;
 let myStorage = window.localStorage;
@@ -35,6 +35,8 @@ valaszok.forEach((i, index) => i.addEventListener('click', () => {
             kérdésBetöltés(nextQuestion, displayedQuestion);
             console.log(hotList);
         }
+    } else {
+        hotList[displayedQuestion].goodAnswers = 0;
     }
 
     g.style.pointerEvents = "auto";
